@@ -7,11 +7,18 @@ function playNote(event) {
     
     // Keycode
     let audiokeycode = getkeyCode(event);
+    
     // typed or pressed key
+    const key = document.querySelector(`.key[data-key="${audiokeycode}"]`)
 
     // if key exists
- 
-    // play audio
+    const cantFoundAnyKey = !key
+    
+    if(cantFoundAnyKey) {
+        return;
+    }
+
+    playAudio(audiokeycode)
 }
 
 function getkeyCode(event) {
@@ -22,6 +29,13 @@ function getkeyCode(event) {
     } else {
         keyCode = event.target.dataset.key
     }
+    return keyCode
+}
+
+function playAudio(audiokeycode) {
+    const audio = document.querySelector(`audio[data-key="${audiokeycode}"]`)
+    audio.currentTime = 0;
+    audio.play()
 }
 
 //click with mouse
