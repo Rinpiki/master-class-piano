@@ -1,2 +1,2 @@
 # master-class-piano
-só um piano
+só um piano.
